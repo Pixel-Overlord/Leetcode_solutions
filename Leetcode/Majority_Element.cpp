@@ -13,18 +13,22 @@ using namespace std;
 
 int MajorityElement(vector<int>& nums)
 {
-    int majElement = nums [0];
+    int majElement = 0;
     int freq = 0;
 
-    for (int i=1; i<nums.size(); i++)
+    for (int num : nums)
     {
-        if (nums[i] == majElement)
+        if (freq == 0)
+        {
+            majElement = num;
+        }
+
+        if (num == majElement)
         {
             freq ++;
         }
         else
         {
-            majElement = nums [i+1];
             freq --;
         }
     }
