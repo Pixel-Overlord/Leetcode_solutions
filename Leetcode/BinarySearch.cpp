@@ -16,7 +16,7 @@
     int start = 0, end = nums.size() - 1;
     int mid = 0;
 
-    while (start < end)
+    while (start <= end)
     {
         mid = start + (end - start)/2;
 
