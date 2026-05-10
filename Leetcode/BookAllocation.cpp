@@ -37,7 +37,7 @@
         }
     }
     
-    return stuCount < m ? true : false;
+    return stuCount <= m ? true : false;
  }
 
  int maxPages(vector<int> &books, int m, int n)
@@ -46,7 +46,7 @@
     {
         return -1;
     }
-    
+
     int start = 0, end = 0;
     int mid = 0, ans = -1;
 
