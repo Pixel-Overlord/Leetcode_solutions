@@ -22,12 +22,21 @@
             cout << "This is a constructor." << endl;
         }
 
-        Teacher(string newName, string newSubject)   // this is a parameterized constructor
+        Teacher (string newName, string newSubject)   // this is a parameterized constructor
         {
             name = newName;
             subject = newSubject;
         }
         
+        Teacher (string name)        // Constructor overloading. Example of Polymorphism.
+        {
+            this->name = name;      // this-> pointer points to object's element.
+        }
+
+        Teacher (Teacher &origObj)        // Constructor overloading. Example of Polymorphism.
+        {
+            this->name = origObj.name;      // this-> pointer points to object's element.
+        }
 
     public :
         string name;
@@ -59,11 +68,13 @@
  {
     Teacher t1;                         //internal constructor is called if no constructor is created.
     Teacher t2("Satish","Biology");     // since parameter, so parameterized constructor is called.
+    //Teacher t3(t2);     // default copy construtor.
+    Teacher t4(t2);
 
     t1.name = "Dinesh";
     t1.changeSubject("Chemistry");
 
     cout << "Teacher's name is " << t1.name << ". His subject is " << t1.getSubject() << ".\n";
     cout << "Teacher's name is " << t2.name << ". His subject is " << t2.getSubject() << ".\n";
-    
+    cout << "Teacher's name is " << t4.name << ". His subject is " << t4.getSubject() << ".\n";
  }
