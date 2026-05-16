@@ -37,7 +37,8 @@
          {
              if (s[i] == ' ' || i == n)
              {
-                ans.push_back(word);
+                if (word != " ")
+                    ans.push_back(word);
                 word = " ";
                 i++;
                 continue;
