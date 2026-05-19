@@ -43,7 +43,7 @@
 
  int main(){
     vector<vector<int>> matrix = {{1,2,3,4}, {5,6,7,8}, {9,10,11,12}, {13,14,15,16}};    
-    int n = matrix.size(), sum = 0;
+    int n = matrix.size(), sum = 0; // note: here matrix.size will return no. of rows.
 
     Solution sol;
     //sol.sumDiagOn2(matrix, n, sum);
