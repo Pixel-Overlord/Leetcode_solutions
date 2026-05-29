@@ -36,9 +36,7 @@
 
             for (int j=i+1; j<n; j++){
 
-                //// optimization 2;
-                //while (j < n && nums[j] == nums[j-1])   continue;
-
+                // optimization 2;
                 if (j > i + 1 && nums[j] == nums[j - 1])
                     continue;
 
