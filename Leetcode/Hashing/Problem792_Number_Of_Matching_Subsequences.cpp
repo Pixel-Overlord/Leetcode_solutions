@@ -84,8 +84,6 @@
        }
 
        int count = 0;
-       bool flag = false;
-
        
        for (auto ele : words) {
           if (isInSequence(charPos, ele)) {
