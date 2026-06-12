@@ -73,6 +73,7 @@
 
             dq.push_back(i);
         }
+        ans.push_back(nums[dq.front()]);
         
         return ans;
     }
