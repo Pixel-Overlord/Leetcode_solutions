@@ -86,6 +86,40 @@ Consider a binary tree:
     cout << root->data << " ";
  }
 
+  void levelOrder(Node* root) {
+    queue<Node*> q;
+
+    q.push(root);
+    q.push(NULL);
+
+    while (q.size() > 0) {
+        Node* curr = q.front();
+        q.pop();
+        
+        if (curr == NULL)   // means either the level has been traversed OR the entire tree has been traversed.
+        {
+            if (!q.empty()) {   // the childs are already added in queue by now.
+                cout << endl;
+                q.push(NULL);   // for next occurance of next line/ end of tree.
+                continue;
+            }
+            else{
+                break;
+            }
+        }
+
+        cout << curr->data << " ";
+
+        if (curr->left != NULL)
+            q.push(curr->left);
+
+        if (curr->right != NULL)
+            q.push(curr->right);
+    }
+
+    cout << endl;
+ }
+
  // Build a binary tree using pre-order sequence.
  static int idx = -1;
  Node* buildTree(vector<int>& preorder) {
@@ -108,10 +142,14 @@ Consider a binary tree:
 
     Node* root = buildTree(preorder);
 
+    // DFS traversal
     preOrder(root);
     cout << endl;
     inOrder(root);
     cout << endl;
     postOrder(root);
     cout << endl;
+
+    // BFS Traversal
+    levelOrder(root);
  }
