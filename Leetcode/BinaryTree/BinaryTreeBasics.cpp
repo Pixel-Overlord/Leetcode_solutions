@@ -52,6 +52,40 @@ Consider a binary tree:
     }
  };
 
+  // root -> left -> right
+ void preOrder(Node* root) {
+    if (root == NULL) {
+        return;
+    }   
+
+    cout << root->data << " ";
+
+    preOrder(root->left);
+    preOrder(root->right);
+ }
+
+ // left -> root -> right
+ void inOrder(Node* root) {
+    if (root == NULL) {
+        return;
+    }
+    
+    inOrder(root->left);
+    cout << root->data << " ";
+    inOrder(root->right);
+ }
+
+ // left -> right -> root
+ void postOrder(Node* root) {
+    if (root == NULL) {
+        return;
+    }
+    
+    postOrder(root->right);
+    postOrder(root->left);
+    cout << root->data << " ";
+ }
+
  // Build a binary tree using pre-order sequence.
  static int idx = -1;
  Node* buildTree(vector<int>& preorder) {
@@ -73,4 +107,11 @@ Consider a binary tree:
     vector<int> preorder = {1,2,-1,-1,3,4,-1,-1,5,-1,-1};
 
     Node* root = buildTree(preorder);
+
+    preOrder(root);
+    cout << endl;
+    inOrder(root);
+    cout << endl;
+    postOrder(root);
+    cout << endl;
  }
